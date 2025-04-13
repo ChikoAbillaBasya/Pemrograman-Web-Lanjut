@@ -12,14 +12,15 @@ class UserModel extends Authenticatable
     use HasFactory;
 
     protected $table = 'm_user';       
-    protected $primaryKey = 'user_id'; 
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'username',
         'password',
         'nama',
         'level_id',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'foto'
     ];
 
     protected $hidden = ['password']; // jangan di tampilkan saat select
@@ -37,7 +38,7 @@ class UserModel extends Authenticatable
     /**
      * Mendapatkan nama role 
      */
-    public function getRoeName(): string
+    public function getRoleName(): string
     {
         return $this->level->level_name;
     }
